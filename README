@@ -1,0 +1,9 @@
+To do:
+
+* Finish basic SFML interface
+* Devise traversal method for board
+* Use the following models to resolve unsolveable configurations:
+	* random
+	* exhaustive
+	* numerical
+* Add ML-based "player"
