@@ -2,24 +2,21 @@
 #include "Tile.h"
 
 Tile::Tile() {
-	if (!tile_texture->loadFromFile("resource/tile.png")) {
-		throw std::runtime_error(
-			"Tile sprite not found."
-		);
-	}
-	tile_sprite = new sf::Sprite(tile_texture);
+	this->adjacent_mines = 0;
 	this->cleared = false;
 	this->flagged = false;
 	this->mine = false;
 }
 
 Tile::~Tile() {
-	delete tile_texture;
-	delete tile_sprite;
 }
 
 bool Tile::isFlagged() {
 	return this->flagged;
+}
+
+bool Tile::isCleared() {
+	return this->cleared;
 }
 
 bool Tile::toggleFlag() {
@@ -31,24 +28,20 @@ bool Tile::toggleFlag() {
 	return this->flagged;
 }
 
-bool clear() {
+bool Tile::clear() {
 	if (this->mine) 
 		return false;
 	this->cleared = true;
 	return true;
 }
 
-bool assignMine() {
+bool Tile::assignMine() {
 	if (this->mine == true) 
 		return false;
 	this->mine = true;
 	return true;
 }
 
-bool assignAdjacentMines(int n) {
+bool Tile::assignAdjacentMines(int n) {
 	this->adjacent_mines = n;
-}
-
-sf::Sprite* getSprite() {
-	return tile_sprite;
 }

@@ -15,14 +15,13 @@ class Tile {
 		bool toggleFlag();
 		bool clear();
 		bool assignMine();
+		bool assignAdjacentMines(int n);
 		bool mine;
 		int adjacent_mines;
-		sf::Sprite* getSprite();
 	private:
 		bool cleared;
 		bool flagged;
-		sf::Sprite* tile_sprite;
-		sf::Texture* tile_texture;
+		sf::Texture tile_texture;
 
 };
 
